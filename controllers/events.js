@@ -14,7 +14,6 @@ module.exports.createEvent = async (req, res, next) => {
     event.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
     event.author = req.user._id;
     await event.save();
-    console.log(event)
     req.flash('success', 'Successfully made a new event!');
     res.redirect(`/events/${event._id}`)
 
@@ -51,11 +50,9 @@ module.exports.updateEvent = async (req, res) => {
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     event.images.push(...imgs);
     await event.save();
-    console.log(event);
     if (req.body.deleteImages) {
         await event.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } });
     }
-    console.log(event);
     req.flash('success', 'Successfully updated event!');
     res.redirect(`/events/${event._id}`)
 }

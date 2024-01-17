@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') %>
+    <h1>All Events</h1>
+    <div><a href="/events/new">Add Event</a></div>
+
+    <% for(let event of events) {%>
+        <div class="card" mb-3>
+            <div class="row">
+                <div class="col-md-4">
+                    <% if(event.images[0]){ %>
+                        <img src="<%= event.images[0].url %>" alt="" class="img-fluid">
+                        <% } %>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= event.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= event.description %>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                <%= event.location %>
+                            </small>
+                        </p>
+                        <a href="/events/<%= event._id %>" class="btn btn-primary">View <%= event.title %>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>

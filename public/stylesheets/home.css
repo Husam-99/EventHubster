@@ -14,9 +14,9 @@ body {
 
 .nav-link {
     padding: 0.25rem 0;
-    font-weight: 700;
+    font-weight: 500;
     color: rgba(255, 255, 255, 0.5);
-    margin-left: 1rem;
+    margin-left: 2rem;
     border-bottom: 0.25rem solid transparent;
 }
 
@@ -31,8 +31,14 @@ body {
 
 }
 
-.btn-secondary,
+.btn-secondary {
+    color: white;
+    text-shadow: 10px;
+    text-decoration-color: black;
+    border: #0b0b0b
+}
+
 .btn-secondary:hover {
-    color: #333;
-    text-shadow: none;
+    background-color: black;
+    color: rgb(201, 201, 201);
 }
